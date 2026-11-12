@@ -1,0 +1,22 @@
+$kind: http-example
+order: 2000
+request:
+  url: '{{base_url}}/contact'
+  method: POST
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    - key: Content-Type
+      value: application/json; charset=utf-8
+  body:
+    type: json
+    content: |-
+      {
+        "error": "Neispravni podaci",
+        "fields": {
+          "name": "Ime i prezime je obavezno polje",
+          "email": "E-mail je obavezno polje",
+          "message": "Poruka je obavezno polje"
+        }
+      }

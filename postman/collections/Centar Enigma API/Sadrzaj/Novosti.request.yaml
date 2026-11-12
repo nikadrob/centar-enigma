@@ -1,0 +1,20 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/news'
+order: 1000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      const data = pm.response.json();
+      pm.test('Status 200 i neprazna lista', () => {
+        pm.response.to.have.status(200);
+        pm.expect(data).to.be.an('array').that.is.not.empty;
+      });
+      pm.test('Zapisi imaju očekivana polja', () => {
+        data.forEach((row) => pm.expect(row).to.include.all.keys('id', 'title', 'excerpt', 'body', 'image', 'published_at'));
+      });
+      pm.test('Najnovije prve', () => {
+        const dates = data.map((r) => r.published_at);
+        pm.expect(dates).to.eql([...dates].sort().reverse());
+      });

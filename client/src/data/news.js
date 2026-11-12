@@ -1,0 +1,51 @@
+// Tablica: news (id, title, excerpt, body, image, published_at)
+export const news = [
+  {
+    id: 1,
+    title: 'Lorem ipsum dolor sit amet',
+    excerpt: 'Consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+    image: 'novosti01',
+    published_at: '2026-11-10',
+  },
+  {
+    id: 2,
+    title: 'Ut enim ad minim veniam',
+    excerpt: 'Quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+    body: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.',
+    image: 'novosti02',
+    published_at: '2026-11-03',
+  },
+  {
+    id: 3,
+    title: 'Duis aute irure dolor',
+    excerpt: 'In reprehenderit in voluptate velit esse cillum dolore.',
+    body: 'Sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.',
+    image: 'novosti03',
+    published_at: '2026-10-27',
+  },
+  {
+    id: 4,
+    title: 'Excepteur sint occaecat',
+    excerpt: 'Cupidatat non proident, sunt in culpa qui officia deserunt.',
+    body: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.',
+    image: 'novosti04',
+    published_at: '2026-10-20',
+  },
+  {
+    id: 5,
+    title: 'Sed ut perspiciatis unde',
+    excerpt: 'Omnis iste natus error sit voluptatem accusantium doloremque.',
+    body: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.',
+    image: 'novosti05',
+    published_at: '2026-10-13',
+  },
+  {
+    id: 6,
+    title: 'Nemo enim ipsam voluptatem',
+    excerpt: 'Quia voluptas sit aspernatur aut odit aut fugit.',
+    body: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.',
+    image: 'novosti06',
+    published_at: '2026-10-06',
+  },
+];

@@ -1,0 +1,20 @@
+$kind: http-request
+name: Pošalji poruku - neispravan JSON
+method: POST
+url: '{{base_url}}/contact'
+order: 5000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {"name": "Ana",
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Status 400 Neispravan JSON', () => {
+        pm.response.to.have.status(400);
+        pm.expect(pm.response.json().error).to.eql('Neispravan JSON');
+      });

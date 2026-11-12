@@ -1,0 +1,506 @@
+/* Logo (izvan navigacije) */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo__text {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* ---------- Sekcije ---------- */
+
+.section {
+  padding-block: 64px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 96px;
+  }
+}
+
+.section__title {
+  margin: 0 0 32px;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.subsection-title {
+  margin: 56px 0 20px;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+/* Pozadine: sivi gradijent koji se nastavlja iz sekcije u sekciju
+   i prema kraju postupno tamni do Kontakta */
+#pocetna {
+  background: linear-gradient(var(--grey-1), var(--grey-2));
+  --card-bg: var(--pastel-peach);
+}
+
+#novosti {
+  background: linear-gradient(var(--grey-2), var(--grey-3));
+  --card-bg: var(--pastel-blue);
+}
+
+#treninzi {
+  background: linear-gradient(var(--grey-3), var(--grey-4));
+  --card-bg: var(--pastel-mint);
+}
+
+#cjenik {
+  background: linear-gradient(var(--grey-4), var(--grey-5));
+  --card-bg: var(--pastel-lavender);
+}
+
+#o-nama {
+  background: linear-gradient(var(--grey-5) 0%, var(--grey-6) 55%, #6b6b68 82%, var(--color-dark-surface) 100%);
+  --card-bg: var(--pastel-vanilla);
+}
+
+/* ---------- Mreža i kartice ---------- */
+
+/* Na 360 px jedan stupac, šire se više stupaca */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 10px;
+  background: var(--card-bg, var(--color-bg));
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.card__body {
+  padding: 16px 10px 10px;
+}
+
+.card__body > :last-child {
+  margin-bottom: 0;
+}
+
+.card__body p {
+  margin: 0 0 12px;
+}
+
+.card__meta {
+  margin: 0 0 6px;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.card__title {
+  margin: 0 0 8px;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+/* Lagano podizanje pri prelasku mišem. `translate` (ne `transform`),
+   jer animacija ulaska zadržava svoj transform. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: translate 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    translate: 0 -4px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  #kontakt .card:hover {
+    translate: none;
+    box-shadow: none;
+  }
+}
+
+/* ---------- Slike ---------- */
+
+.image,
+.image-placeholder {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-align: center;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Gumb ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--color-accent-hover);
+}
+
+/* ---------- Početna ---------- */
+
+.hero {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.section--hero .section__title {
+  margin-bottom: 20px;
+  font-size: clamp(3rem, 13vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.hero__subtitle {
+  max-width: 34ch;
+  margin: 0 0 28px;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+}
+
+.hero .image,
+.hero .image-placeholder {
+  border-radius: var(--radius);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+/* ---------- Treninzi: raspored ---------- */
+
+.schedule {
+  max-width: 420px;
+  margin-top: 56px;
+}
+
+.schedule h3 {
+  margin: 0 0 16px;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.schedule .image,
+.team-photo .image,
+.schedule .image-placeholder,
+.team-photo .image-placeholder {
+  border-radius: var(--radius);
+}
+
+/* ---------- O nama: fotografija tima ---------- */
+
+.team-photo {
+  max-width: 420px;
+  margin-bottom: 20px;
+}
+
+/* ---------- Cjenik ---------- */
+
+.price {
+  margin: 4px 0 16px;
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.price span {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--color-muted);
+}
+
+.features {
+  margin: 0;
+  padding: 16px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.features li {
+  position: relative;
+  padding: 4px 0 4px 22px;
+}
+
+.features li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.75em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.card--highlighted {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+/* Oznaka „Preporučeno” kao pilula */
+.card--highlighted .card__meta {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Kontakt: tamni dio (inspiracija: about) ---------- */
+
+#kontakt {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: clamp(7rem, 24vw, 17rem);
+  background: linear-gradient(var(--color-dark-surface), var(--color-dark) 40%);
+  color: var(--color-dark-text);
+  --card-bg: var(--color-dark-surface);
+}
+
+#kontakt .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Golemi izblijedjeli natpis u pozadini; čitači ekrana ga preskaču */
+#kontakt::after {
+  content: 'ENIGMA';
+  content: 'ENIGMA' / '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.14em;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 26vw, 20rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  color: transparent;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+}
+
+#kontakt .section__title {
+  color: var(--color-dark-text);
+}
+
+#kontakt a {
+  color: var(--color-accent-light);
+}
+
+#kontakt .card {
+  border: 1px solid var(--color-dark-border);
+  box-shadow: none;
+}
+
+#kontakt .card__body {
+  padding: 18px 14px 14px;
+}
+
+#kontakt h3 {
+  margin: 28px 0 8px;
+  color: var(--color-dark-muted);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr 1.4fr;
+    align-items: start;
+  }
+}
+
+.contact address {
+  font-style: normal;
+  color: var(--color-dark-muted);
+}
+
+.contact address p {
+  margin: 0 0 10px;
+}
+
+/* E-mail istaknut krupno, kao u inspiraciji */
+#kontakt address a[href^='mailto:'] {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-dark-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+#kontakt address a[href^='mailto:']:hover,
+#kontakt address a[href^='mailto:']:focus-visible {
+  color: var(--color-accent-light);
+}
+
+.hours {
+  margin: 0;
+}
+
+.hours div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.hours dt {
+  color: var(--color-dark-muted);
+}
+
+.hours dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Obrazac: polja samo s donjom linijom */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 20px;
+}
+
+.field label {
+  color: var(--color-dark-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid #4a4a4a;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-dark-text);
+  font: inherit;
+  font-size: 1.0625rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent-light);
+  box-shadow: 0 1px 0 var(--color-accent-light);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+#kontakt .button {
+  background: var(--color-accent-light);
+  color: var(--color-text);
+}
+
+#kontakt .button:hover,
+#kontakt .button:focus-visible {
+  background: #e3b968;
+}
+
+#kontakt :focus-visible {
+  outline-color: var(--color-accent-light);
+}
+
+.form-status {
+  min-height: 1.5em;
+  margin: 14px 0 0;
+  color: var(--color-accent-light);
+}
+
+/* ---------- Podnožje ---------- */
+
+.footer {
+  padding-block: 24px;
+  background: var(--color-footer);
+  color: var(--color-text);
+  font-size: 0.875rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .field input,
+  .field textarea {
+    transition: none;
+  }
+}

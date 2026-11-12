@@ -1,0 +1,28 @@
+$kind: http-request
+name: Pošalji poruku
+method: POST
+url: '{{base_url}}/contact'
+order: 2000
+examples: './.resources/Posalji poruku.resources/examples'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Ana Anić",
+      "email": "ana@example.com",
+      "phone": "+385 91 000 0000",
+      "message": "Pozdrav, zanima me probni trening."
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Status 201 s id i created_at', () => {
+        pm.response.to.have.status(201);
+        const data = pm.response.json();
+        pm.expect(data.id).to.be.a('number');
+        pm.expect(data.created_at).to.be.a('string');
+      });

@@ -1,0 +1,18 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/contact'
+order: 1000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      const data = pm.response.json();
+      pm.test('Status 200 i jedan objekt', () => {
+        pm.response.to.have.status(200);
+        pm.expect(data).to.be.an('object').that.includes.all.keys('id', 'address', 'phone', 'email', 'working_hours', 'map_url');
+        pm.expect(data.id).to.eql(1);
+      });
+      pm.test('working_hours je polje { days, hours }', () => {
+        pm.expect(data.working_hours).to.be.an('array').that.is.not.empty;
+        data.working_hours.forEach((r) => pm.expect(r).to.have.all.keys('days', 'hours'));
+      });

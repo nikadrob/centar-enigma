@@ -1,0 +1,154 @@
+.navbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 100%;
+}
+
+/* Logo: datoteka logo-enigma.png ima puno praznog ruba oko natpisa,
+   pa se prikazuje izrezan na sam natpis s trokutom.
+   Ako se logo zamijeni datotekom bez ruba, dovoljno je obrisati ovaj blok. */
+.navbar .logo {
+  flex-shrink: 0;
+  display: block;
+  width: 150px;
+  height: 52px;
+  overflow: hidden;
+}
+
+.navbar .logo img {
+  width: 204px;
+  max-width: none;
+  height: auto;
+  margin: -44px 0 0 -31px;
+}
+
+.navbar .logo__text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 52px;
+}
+
+.navbar__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar__links a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus-visible {
+  background: var(--color-surface);
+}
+
+/* Aktivna sekcija (bez podebljanja, da se poveznice ne pomiču) */
+.navbar__links a.is-active {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+/* Hamburger gumb (mobitel) */
+.navbar__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg);
+  cursor: pointer;
+}
+
+.navbar__toggle-bar {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-text);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Otvoreno stanje: tri crte postaju X */
+.navbar.is-open .navbar__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar.is-open .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar.is-open .navbar__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobitel: padajući izbornik ispod trake */
+@media (max-width: 767.98px) {
+  .navbar__links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2px;
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+    padding: 8px var(--gutter) 20px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar.is-open .navbar__links {
+    display: flex;
+  }
+
+  .navbar__links a {
+    padding: 12px 14px;
+    font-size: 1.0625rem;
+  }
+}
+
+/* Desktop: poveznice u retku, bez hamburgera */
+@media (min-width: 768px) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__links {
+    display: flex;
+    gap: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__toggle-bar,
+  .navbar__links a {
+    transition: none;
+  }
+}

@@ -1,0 +1,4 @@
+$kind: collection
+name: Sadržaj
+description: GET rute samo za čitanje; liste su poredane po sort_order (novosti po datumu).
+order: 2000

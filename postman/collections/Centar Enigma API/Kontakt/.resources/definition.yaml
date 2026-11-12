@@ -1,0 +1,6 @@
+$kind: collection
+name: Kontakt
+description: |-
+  Podaci za kontakt i obrazac. POST zahtjevi s ispravnim podacima upisuju
+  poruku u tablicu contact_messages baze na koju server pokazuje.
+order: 3000

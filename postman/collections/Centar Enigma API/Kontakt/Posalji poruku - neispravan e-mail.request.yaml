@@ -1,0 +1,24 @@
+$kind: http-request
+name: Pošalji poruku - neispravan e-mail
+method: POST
+url: '{{base_url}}/contact'
+order: 4000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Ana",
+      "email": "nije-email",
+      "message": "Pozdrav"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Status 400 i greška samo za e-mail', () => {
+        pm.response.to.have.status(400);
+        pm.expect(pm.response.json().fields).to.have.all.keys('email');
+      });

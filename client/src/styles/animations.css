@@ -1,0 +1,32 @@
+/* Bounce pri ulasku u viewport (vidi hooks/useReveal.js).
+   Sve je unutar no-preference: uz prefers-reduced-motion: reduce
+   ništa se ne skriva ni ne animira. */
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.01);
+  }
+  80% {
+    transform: translateY(3px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready :is(.section__title, .card, .reveal):not(.is-visible) {
+    opacity: 0;
+  }
+
+  .reveal-ready :is(.section__title, .card, .reveal).is-visible {
+    animation: bounce-in 0.7s ease-out both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+}

@@ -1,0 +1,8 @@
+Kreiraj web site za fitness studio Centar Enigma.
+Tehnologije frontend: React + Vite
+Tehnologije backend: SQLite + Express
+Kategorije: Početna, Novosti, Treninzi, Cjenik,  O nama, Kontakt 
+Za sada samo hard-code text, generiran iz lorem ipsum , kasnije iz baze. 
+Obavezno responsible design (za internet i mobilne uređaje).
+Navigacije na vrhu landing page.
+Site kao SPA, klikom na kategoriju stranica klizi na odabranu kategoriju, moguće baounc efakat ili slično.

@@ -1,0 +1,165 @@
+/* Fontovi: vlastite datoteke u client/public/fonts/ (OFL licenca), bez poziva prema Googleu.
+   Varijabilni fontovi: jedna datoteka pokriva sve debljine.
+   Hrvatska slova (č ć đ š ž) nalaze se u latin-ext podskupu. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-wght.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-latin-ext-wght.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+    U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-tight-latin-wght.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/inter-tight-latin-ext-wght.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+    U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+    U+2C60-2C7F, U+A720-A7FF;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Osnovne boje */
+  --color-text: #141414;
+  --color-muted: #5c5c5c;
+  --color-bg: #ffffff;
+  --color-surface: #f2f2f0;
+  --color-border: #e2e2de;
+
+  /* Akcent iz logotipa (zlatni trokut) */
+  --color-accent: #9a6b1f; /* bijeli tekst na njemu: AA */
+  --color-accent-hover: #7f5818;
+  --color-accent-light: #d4a44c; /* za tamnu podlogu */
+
+  /* Tamni dio (Kontakt) */
+  --color-dark: #0d0d0d;
+  --color-dark-surface: #1a1a1a;
+  --color-dark-border: #2e2e2e;
+  --color-dark-text: #f2f2f2;
+  --color-dark-muted: #a8a8a8;
+
+  /* Podnožje */
+  --color-footer: #999999;
+
+  /* Pastelne boje kartica, po sekciji (komplementarni parovi) */
+  --pastel-peach: #fbe3d4;
+  --pastel-blue: #dce8f6;
+  --pastel-mint: #d9efe2;
+  --pastel-lavender: #e7e0f5;
+  --pastel-vanilla: #f6eccb;
+
+  /* Sivi gradijent kroz sekcije; svaka sekcija nastavlja gdje je prethodna stala */
+  --grey-1: #f7f7f5;
+  --grey-2: #f0f0ed;
+  --grey-3: #e8e8e4;
+  --grey-4: #deded9;
+  --grey-5: #d3d3ce;
+  --grey-6: #b9b9b4;
+
+  /* Tipografija */
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Mjere */
+  --container: 1160px;
+  --gutter: 16px;
+  --nav-h: 72px;
+  --radius: 16px;
+  --radius-sm: 12px;
+
+  font-family: var(--font-body);
+  font-size: 100%;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--grey-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  /* Prostor ispod fiksne navigacije */
+  padding-top: var(--nav-h);
+  overflow-x: hidden;
+}
+
+/* Naslov sekcije nakon skoka ne završava ispod fiksne navigacije */
+section[id] {
+  scroll-margin-top: var(--nav-h);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}

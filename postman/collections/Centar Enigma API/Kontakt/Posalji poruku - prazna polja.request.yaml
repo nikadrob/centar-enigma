@@ -1,0 +1,22 @@
+$kind: http-request
+name: Pošalji poruku - prazna polja
+method: POST
+url: '{{base_url}}/contact'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {}
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test('Status 400 s greškom za svako obavezno polje', () => {
+        pm.response.to.have.status(400);
+        const data = pm.response.json();
+        pm.expect(data.error).to.eql('Neispravni podaci');
+        pm.expect(data.fields).to.have.all.keys('name', 'email', 'message');
+      });

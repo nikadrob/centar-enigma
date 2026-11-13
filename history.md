@@ -89,8 +89,9 @@ tijek rada, odluke i otvorene stavke. Stanje: 12. 11. 2026.
 - [ ] Frontend prebaciti s `client/src/data/` na API (fetch preko Vite proxyja `/api`)
 - [ ] Obrazac u Kontaktu spojiti na `POST /api/contact` (prikaz grešaka iz `fields`)
 - [ ] Pravi tekstovi umjesto lorem ipsuma; pravi kontakt podaci; `map_url`
-- [ ] Logo: izrez u `navbar.css` vrijedi samo za sadašnji `logo-enigma.png`
-      (prilagoditi pri zamjeni); favicon u `client/index.html` koristi istu putanju
+- [x] Logo zamijenjen izrezanom verzijom (640 × 190 px); u navigaciji 56 px visok i centriran
+- [ ] Favicon u `client/index.html` još koristi široki `logo-enigma.png`; kvadratni
+      `logo-enigma.jpg` (72 × 72) bio bi bolji
 - [ ] Neiskorištene slike u `resources.js`: `pocetna4`, `pocetnaKvadrat`, `treneriTim02/03`,
       `trenerMonika02`, `trenerVanja02`
 - [ ] Dvobojni naslov iz inspiracije (riječ u akcentnoj boji) traži promjenu JSX-a

@@ -15,29 +15,23 @@
   height: 100%;
 }
 
-/* Logo: datoteka logo-enigma.png ima puno praznog ruba oko natpisa,
-   pa se prikazuje izrezan na sam natpis s trokutom.
-   Ako se logo zamijeni datotekom bez ruba, dovoljno je obrisati ovaj blok. */
+/* Logo vertikalno centriran u traci (8 px razmaka gore i dolje); datoteka je izrezana bez ruba */
 .navbar .logo {
   flex-shrink: 0;
-  display: block;
-  width: 150px;
-  height: 52px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .navbar .logo img {
-  width: 204px;
-  max-width: none;
-  height: auto;
-  margin: -44px 0 0 -31px;
+  height: calc(var(--nav-h) - 16px);
+  width: auto;
 }
 
 .navbar .logo__text {
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 52px;
 }
 
 .navbar__links {

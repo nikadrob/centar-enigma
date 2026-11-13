@@ -47,8 +47,8 @@
   - header bijeli; sekcije sivi gradijent koji prema kraju tamni; Kontakt tamni; podnožje `#999999`
   - kartice svake sekcije imaju svoju pastelnu boju (`--card-bg` po `#id` sekcije)
   - fontovi Inter (tekst) i Inter Tight (naslovi), lokalno u `client/public/fonts/` (OFL), bez Google Fonts
-- Izrez logotipa u navigaciji (`navbar.css`) vrijedi za trenutni `logo-enigma.png`;
-  pri zamjeni logotipa prilagodi ili obriši taj blok
+- Logo u navigaciji: visina `--nav-h` − 16 px, vertikalno centriran; datoteka logotipa
+  treba biti izrezana bez praznog ruba
 - Mobile-first, bez horizontalnog skrolanja na 360 px
 - Fiksna navigacija: sekcije imaju `scroll-margin-top`, hash u URL-u se
   ažurira s `history.replaceState`

@@ -5,7 +5,7 @@
     "dev": "concurrently -n client,server -c cyan,green \"npm run dev:client\" \"npm run dev:server\"",
     "dev:client": "npm run dev --prefix client",
     "dev:server": "npm run dev --prefix server",
-    "build": "npm run build --prefix client",
+    "build": "npm install --prefix client && npm run build --prefix client",
     "test:api": "postman collection run \"postman/collections/Centar Enigma API\" -e postman/environments/Lokalno.environment.yaml"
   },
   "devDependencies": {

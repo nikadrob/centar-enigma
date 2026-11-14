@@ -7,6 +7,10 @@ const BASE = '/Resursi/';
 export const resources = {
   logo: `${BASE}logo-enigma.png`,
 
+  // Društvene mreže (ikone u navigaciji)
+  instagram: `${BASE}instagram.jpg`,
+  facebook: `${BASE}facebook.png`,
+
   // Početna
   hero: `${BASE}pocetna5.png`,
   pocetna1: `${BASE}pocetna1.png`,

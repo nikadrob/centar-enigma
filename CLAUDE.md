@@ -45,8 +45,9 @@
 - Stil (inspiracija: `Inspiracija/`, bez preuzimanja njihovih tekstova i slika):
   - boje su CSS varijable u `client/src/styles/base.css` (akcent je zlatna iz logotipa)
   - header bijeli; sekcije sivi gradijent koji prema kraju tamni; Kontakt tamni; podnožje `#999999`
-  - kartice svake sekcije imaju svoju pastelnu boju (`--card-bg` po `#id` sekcije)
-  - fontovi Inter (tekst) i Inter Tight (naslovi), lokalno u `client/public/fonts/` (OFL), bez Google Fonts
+  - kartice svake sekcije imaju svoju toplu boju iz sheme rasporeda (zlatna/bronca/pijesak,
+    varijable `--card-*`; `--card-bg` po `#id` sekcije); `--color-muted` na njoj mora imati kontrast ≥ 4.5:1
+  - fontovi Inter (tekst i naslovi sekcija, `.section__title`) i Inter Tight (ostali naslovi), lokalno u `client/public/fonts/` (OFL), bez Google Fonts
 - Logo u navigaciji: visina `--nav-h` − 16 px, vertikalno centriran; datoteka logotipa
   treba biti izrezana bez praznog ruba
 - Mobile-first, bez horizontalnog skrolanja na 360 px

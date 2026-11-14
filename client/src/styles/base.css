@@ -72,12 +72,13 @@
   /* Podnožje */
   --color-footer: #999999;
 
-  /* Pastelne boje kartica, po sekciji (komplementarni parovi) */
-  --pastel-peach: #fbe3d4;
-  --pastel-blue: #dce8f6;
-  --pastel-mint: #d9efe2;
-  --pastel-lavender: #e7e0f5;
-  --pastel-vanilla: #f6eccb;
+  /* Boje kartica po sekciji: topli tonovi iz rasporeda (zlatna, bronca, pijesak).
+     Svaka je dovoljno svijetla da --color-muted na njoj ima kontrast >= 4.5:1 */
+  --card-honey: #f3d58c;
+  --card-apricot: #f5d1ab;
+  --card-khaki: #e3dba3;
+  --card-rose: #f2cfbe;
+  --card-champagne: #f0dcae;
 
   /* Sivi gradijent kroz sekcije; svaka sekcija nastavlja gdje je prethodna stala */
   --grey-1: #f7f7f5;

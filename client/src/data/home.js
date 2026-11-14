@@ -1,7 +1,7 @@
 // Statični sadržaj početne sekcije (nema tablicu u bazi)
 export const home = {
   title: 'Centar Enigma',
-  subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  subtitle: 'Teretana u centru grada Rijeke',
   cta_label: 'Pogledaj treninge',
   cta_target: 'treninzi',
   image: 'hero',

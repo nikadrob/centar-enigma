@@ -19,7 +19,7 @@ export const trainers = [
   {
     id: 3,
     name: 'Vanja',
-    role: 'Trenerica',
+    role: 'Trener',
     bio: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
     image: 'trenerVanja',
     sort_order: 3,

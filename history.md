@@ -2,12 +2,12 @@
 
 Sažetak dosadašnjeg rada za nastavak na drugom računalu.
 Pravila projekta, naredbe, API i struktura mapa nalaze se u `CLAUDE.md`; ovdje su
-tijek rada, odluke i otvorene stavke. Stanje: 12. 11. 2026.
+tijek rada, odluke i otvorene stavke. Stanje: 14. 11. 2026.
 
 ## Prijenos na drugo računalo
 
-1. **Repozitorij još nema nijednog commita.** Prije prijenosa napravi commit i push
-   (ili kopiraj cijelu mapu).
+1. Zadnji commit je `c6a9c8a 'Nastavak'`. **Izmjene iz sesije 14. 11. (vidi dolje) još
+   nisu commitane**: prije prijenosa napravi commit i push (ili kopiraj cijelu mapu).
 2. U git NE ulaze (vidi `.gitignore`), pa ih treba prenijeti ili ponovno stvoriti:
    - `Inspiracija/`: slike za vizualnu referencu; kopiraj ručno ako trebaju
    - `server/data/enigma.db`: ponovno se stvara seedom
@@ -44,6 +44,19 @@ tijek rada, odluke i otvorene stavke. Stanje: 12. 11. 2026.
 | 11 | Završna provjera na 360 / 768 / 1280 px, favicon |
 | Stil | Dizajn prema `Inspiraciji/` (samo CSS u `client/src/styles/` + fontovi) |
 
+### Sesija 14. 11. 2026 (stil i sitnice, sve u CSS-u osim navedenog)
+
+| Promjena | Detalji |
+|---|---|
+| Društvene mreže | Nova komponenta `components/SocialLinks.jsx` (Instagram, Facebook; `target="_blank"`, `rel="noopener noreferrer"`). Ikone `instagram.jpg` / `facebook.png` u `resources.js`. Stoje u desnom kutu prostora ispod headera (na vrhu `Pocetna.jsx`, `position: absolute`), vertikalno centrirane, 3 px uvučene, razmak 16 px. U boji, hover crno-bijelo |
+| Prostor ispod headera | `.section--hero`: `--hero-pad` = 70 % od 64 / 96 px (≈ 45 / 67 px); ista varijabla određuje `padding-top` i položaj ikona |
+| Naslovi sekcija | Font Inter (umjesto Inter Tight), veličina 85 % prijašnje, `letter-spacing` −0.0175em (Početna −0.0225em) |
+| Naslov Početne | „Centar” / „Enigma” u dva reda (`Pocetna.jsx` dijeli `home.title` na prvom razmaku); „Enigma” u `--color-accent` |
+| Paleta | `client/public/Resursi/colors.png` (žuta, zelena, plava, višnja, sive); u `base.css` samo korištene nijanse (`--yellow-*`, `--cherry-*`, `--slate-*`) |
+| Kartice | Slika bez paddinga, do ruba kartice; gornji kutovi zaobljeni, donji ravni (`.card > .image`) |
+| Treneri | Uklonjena zajednička fotografija tima (`teamImage` iz `trainers.js`, `.team-photo` CSS) |
+| Gradijent | O nama više ne tamni do crne (`--grey-5` → `--grey-6`); Kontakt počinje istom sivom i u prvih 64 px prelazi u tamno sivu `#383B3D` |
+
 ## Važne odluke i odstupanja od prvotnog plana
 
 - **Slike** su odmah spojene iz `Resursi/` (ne placeholderi); `ImagePlaceholder` ostaje kao rezerva.
@@ -60,18 +73,41 @@ tijek rada, odluke i otvorene stavke. Stanje: 12. 11. 2026.
   (JSON polja parsirana, `highlighted` boolean), pa će prelazak frontenda na API biti jednostavan.
 - **Auto-reload servera**: `node --watch` umjesto nodemona.
 
-## Stil (odobreno)
+## Stil (trenutno stanje, 14. 11. 2026)
 
-- Akcent: zlatna iz logotipa, `#9A6B1F` (na svijetlom), `#D4A44C` (na tamnom).
-- Header bijeli; sekcije sivi gradijent `#F7F7F5` → `#D3D3CE`, u sekciji O nama postupno
-  tamni do Kontakta (`#1A1A1A` → `#0D0D0D`); podnožje `#999999`.
-- Pastelne kartice po sekciji: Početna breskva `#FBE3D4`, Novosti plava `#DCE8F6`,
-  Treninzi menta `#D9EFE2`, Cjenik lavanda `#E7E0F5`, O nama vanilija `#F6ECCB`.
-- Kontakt po uzoru na `Inspiracija/about.png`: tamno, krupan e-mail, polja s donjom linijom,
-  golemi izblijedjeli natpis „ENIGMA” (CSS `::after`).
-- Fontovi Inter (tekst) i Inter Tight (naslovi), lokalno u `client/public/fonts/`
-  (varijabilni woff2, OFL licence uz njih). Namjerno bez Google Fonts (GDPR).
-- Sve boje su CSS varijable u `client/src/styles/base.css`.
+Sve boje su CSS varijable u `client/src/styles/base.css`; izvor palete je `colors.png`.
+
+| Element | Boja | Varijabla |
+|---|---|---|
+| „Enigma” u naslovu, preporučeni paket (okvir + oznaka, tamni tekst) | žuta `#D6C100` | `--color-accent` |
+| Gumbi (bijeli tekst) | višnja `#C50276`, hover `#8C0152` | `--color-button`, `--color-button-hover` |
+| Naslovi kartica | višnja `#8C0152` | `--color-secondary` |
+| Poveznice, fokus, crta aktivne sekcije, točkice u Cjeniku | tamna žuta `#837601` | `--color-accent-strong` |
+| Žuta na tamnom (Kontakt) | `#D1BD02` | `--color-accent-light` |
+| Tekst / prigušeni tekst | `#191B1C` / `#44494C` | `--color-text`, `--color-muted` |
+| Sekcije | hladni sivi gradijent `#F6F7F8` → `#9BA3A8` | `--grey-1` … `--grey-6` |
+| Kontakt / kartice u Kontaktu | tamno siva `#383B3D` / `#2F3234` | `--color-dark`, `--color-dark-surface` |
+| Podnožje | `#9BA3A8` | `--color-footer` |
+
+- **Kartice (PROBA, odobrena kao smjer):** blok označen `PROBA` u `components.css` daje
+  karticama izvan Kontakta prozirno tamnjenje `rgba(0,0,0,.04)` (nijansu tamnije od
+  podloge), rub `rgba(0,0,0,.1)` i naslove u višnji. Brisanjem bloka kartice se vraćaju
+  na `--card-color` (`#FDF6B9`). Ako ostaje, blok preseliti u `.card` / `.card__title`
+  i ažurirati pravilo o karticama u `CLAUDE.md` (tamo još piše `#FDF6B9`).
+- Kontakt po uzoru na `Inspiracija/about.png`: tamno siv, krupan e-mail, polja s donjom
+  linijom, golemi izblijedjeli natpis „ENIGMA” (CSS `::after`).
+- Fontovi Inter (tekst i naslovi sekcija) i Inter Tight (ostali naslovi), lokalno u
+  `client/public/fonts/` (varijabilni woff2, OFL licence uz njih). Namjerno bez Google Fonts (GDPR).
+- Kontrast: žuta `#D6C100` na svijetlosivom ima ≈ 1.8:1 (namjerno, krupan naslov);
+  sve ostale kombinacije teksta ≥ 4.5:1.
+
+### Tijek odluka o boji (da se ne ponavlja)
+
+Pastelne kartice → topli tonovi iz `raspored.png` → prva paleta (zlatna `#DEB021` + plava
+`#214FDE`) → nova paleta (`colors.png`) s karticama žuta / plava / ružičasta → sve kartice
+`#FCF299` → `#FDF6B9` → PROBA sive kartice. „Enigma”: `#D1BD02` → `#FDF6B9` (nevidljivo) →
+`#D6C100`; naslovi kartica: `#837601` → `#D6C100` → `#F4E00B` → boja gumba → višnja.
+Plava je potpuno izbačena i zamijenjena višnjom. Gumbi: žuta → višnja.
 
 ## Kako je testirano
 
@@ -85,16 +121,22 @@ tijek rada, odluke i otvorene stavke. Stanje: 12. 11. 2026.
 
 ## Otvoreno / sljedeći koraci
 
-- [ ] Prvi commit (i push) cijelog projekta
+- [x] Prvi commit cijelog projekta
+- [ ] Commit izmjena iz sesije 14. 11. 2026 (uključujući novi `colors.png`)
+- [ ] PROBA blok kartica: potvrditi i preseliti u stalna pravila ili obrisati
+- [ ] Vizualna provjera u pregledniku (360 / 768 / 1280 px) nakon izmjena 14. 11.:
+      ikone ispod headera na 360 px, čitljivost naslova u Cjeniku, prijelaz O nama → Kontakt
+- [ ] Neiskorištene varijable u `base.css`: `--yellow-1`, `--yellow-3`, `--grey-7`
+      (a `--card-color` je zasjenjen dok je PROBA aktivna); počistiti kad se stil potvrdi
 - [ ] Frontend prebaciti s `client/src/data/` na API (fetch preko Vite proxyja `/api`)
 - [ ] Obrazac u Kontaktu spojiti na `POST /api/contact` (prikaz grešaka iz `fields`)
 - [ ] Pravi tekstovi umjesto lorem ipsuma; pravi kontakt podaci; `map_url`
 - [x] Logo zamijenjen izrezanom verzijom (640 × 190 px); u navigaciji 56 px visok i centriran
 - [ ] Favicon u `client/index.html` još koristi široki `logo-enigma.png`; kvadratni
       `logo-enigma.jpg` (72 × 72) bio bi bolji
-- [ ] Neiskorištene slike u `resources.js`: `pocetna4`, `pocetnaKvadrat`, `treneriTim02/03`,
-      `trenerMonika02`, `trenerVanja02`
-- [ ] Dvobojni naslov iz inspiracije (riječ u akcentnoj boji) traži promjenu JSX-a
+- [ ] Neiskorištene slike u `resources.js`: `pocetna4`, `pocetnaKvadrat`, `treneriTim`
+      (od 14. 11.), `treneriTim02/03`, `trenerMonika02`, `trenerVanja02`
+- [x] Dvobojni naslov („Enigma” u akcentnoj boji, u drugom redu)
 - [ ] `created_at` u `contact_messages` je UTC bez oznake zone: paziti pri prikazu
 - [ ] `npm run test:api` protiv dev servera upisuje testnu poruku u pravu bazu
 - [ ] `postman init` je stvorio `AGENTS.md`, `.postman/` i `postman/skills/`: odlučiti

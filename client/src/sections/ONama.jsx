@@ -1,9 +1,7 @@
 import Section from '../components/Section.jsx';
 import Card from '../components/Card.jsx';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 import { about } from '../data/about.js';
-import { trainers, teamImage } from '../data/trainers.js';
-import { getImage } from '../data/resources.js';
+import { trainers } from '../data/trainers.js';
 
 export default function ONama() {
   const blocks = [...about].sort((a, b) => a.sort_order - b.sort_order);
@@ -20,9 +18,6 @@ export default function ONama() {
       </div>
 
       <h3 className="subsection-title">Treneri</h3>
-      <div className="team-photo reveal">
-        <ImagePlaceholder src={getImage(teamImage)} alt="Tim Centra Enigma" ratio="310 / 461" />
-      </div>
       <div className="grid">
         {team.map((item) => (
           <Card key={item.id} image={item.image} title={item.name} meta={item.role}>

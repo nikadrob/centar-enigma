@@ -29,7 +29,7 @@
   font-size: clamp(1.9125rem, 5.95vw, 3.4rem); /* 85 % */
   font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.0175em;
 }
 
 .subsection-title {
@@ -44,27 +44,27 @@
    i prema kraju postupno tamni do Kontakta */
 #pocetna {
   background: linear-gradient(var(--grey-1), var(--grey-2));
-  --card-bg: var(--card-honey);
+  --card-bg: var(--card-color);
 }
 
 #novosti {
   background: linear-gradient(var(--grey-2), var(--grey-3));
-  --card-bg: var(--card-apricot);
+  --card-bg: var(--card-color);
 }
 
 #treninzi {
   background: linear-gradient(var(--grey-3), var(--grey-4));
-  --card-bg: var(--card-khaki);
+  --card-bg: var(--card-color);
 }
 
 #cjenik {
   background: linear-gradient(var(--grey-4), var(--grey-5));
-  --card-bg: var(--card-rose);
+  --card-bg: var(--card-color);
 }
 
 #o-nama {
-  background: linear-gradient(var(--grey-5) 0%, var(--grey-6) 55%, #6b6b68 82%, var(--color-dark-surface) 100%);
-  --card-bg: var(--card-champagne);
+  background: linear-gradient(var(--grey-5), var(--grey-6));
+  --card-bg: var(--card-color);
 }
 
 /* ---------- Mreža i kartice ---------- */
@@ -80,14 +80,24 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 10px;
   background: var(--card-bg, var(--color-bg));
   border-radius: var(--radius);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .card__body {
-  padding: 16px 10px 10px;
+  padding: 16px 20px 20px;
+}
+
+/* Kartica bez slike: isti razmak od vrha kao prije */
+.card__body:first-child {
+  padding-top: 26px;
+}
+
+/* Slika u kartici ide do ruba: gornji kutovi prate karticu, donji su ravni */
+.card > .image,
+.card > .image-placeholder {
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .card__body > :last-child {
@@ -114,6 +124,21 @@
   line-height: 1.15;
   letter-spacing: -0.03em;
 }
+
+/* ===== PROBA (lako za ukloniti): sive kartice s rubom i žutim naslovom =====
+   Pozadina je prozirno tamnjenje, pa je kartica uvijek nijansu tamnija od
+   podloge sekcije (gradijent), a rub još nijansu tamniji. Kontakt se ne mijenja.
+   Za povratak na --card-color obriši ovaj blok. */
+.section:not(#kontakt) .card {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+
+.section:not(#kontakt) .card__title {
+  color: var(--color-secondary); /* višnja #8C0152 */
+}
+/* ===== kraj PROBE ===== */
 
 /* Lagano podizanje pri prelasku mišem. `translate` (ne `transform`),
    jer animacija ulaska zadržava svoj transform. */
@@ -166,8 +191,8 @@
   padding: 12px 28px;
   border: 0;
   border-radius: 999px;
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-button);
+  color: var(--color-on-button);
   font: inherit;
   font-weight: 600;
   text-decoration: none;
@@ -177,20 +202,21 @@
 
 .button:hover,
 .button:focus-visible {
-  background: var(--color-accent-hover);
+  background: var(--color-button-hover);
 }
 
 /* ---------- Početna ---------- */
 
-/* Visina prostora ispod headera (jednaka gornjem paddingu .section);
-   ikone društvenih mreža centriraju se unutar njega */
+/* Prostor ispod headera: 30 % manji od gornjeg paddinga .section (64 / 96 px).
+   Ikone društvenih mreža centriraju se unutar njega preko iste varijable. */
 .section--hero {
-  --hero-pad: 64px;
+  --hero-pad: calc(64px * 0.7);
+  padding-top: var(--hero-pad);
 }
 
 @media (min-width: 768px) {
   .section--hero {
-    --hero-pad: 96px;
+    --hero-pad: calc(96px * 0.7);
   }
 }
 
@@ -249,7 +275,7 @@
   margin-bottom: 20px;
   font-size: clamp(2.55rem, 11.05vw, 5.1rem); /* 85 % */
   line-height: 1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.0225em;
 }
 
 /* Druga riječ naslova ("Enigma") u boji gumba */
@@ -292,17 +318,8 @@
 }
 
 .schedule .image,
-.team-photo .image,
-.schedule .image-placeholder,
-.team-photo .image-placeholder {
+.schedule .image-placeholder {
   border-radius: var(--radius);
-}
-
-/* ---------- O nama: fotografija tima ---------- */
-
-.team-photo {
-  max-width: 420px;
-  margin-bottom: 20px;
 }
 
 /* ---------- Cjenik ---------- */
@@ -344,11 +361,11 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-accent-strong);
 }
 
 .card--highlighted {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-accent); /* žuta iz naslova #D6C100 */
   outline-offset: -2px;
 }
 
@@ -359,7 +376,7 @@
   padding: 3px 10px;
   border-radius: 999px;
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-text); /* tamni tekst na žutoj */
   letter-spacing: 0.04em;
 }
 
@@ -369,7 +386,8 @@
   position: relative;
   overflow: hidden;
   padding-bottom: clamp(7rem, 24vw, 17rem);
-  background: linear-gradient(var(--color-dark-surface), var(--color-dark) 40%);
+  /* Nastavlja sivu iz O nama i u gornjem razmaku (prije naslova) prelazi u tamno sivu */
+  background: linear-gradient(var(--grey-6), var(--color-dark) 64px);
   color: var(--color-dark-text);
   --card-bg: var(--color-dark-surface);
 }
@@ -414,7 +432,7 @@
 }
 
 #kontakt .card__body {
-  padding: 18px 14px 14px;
+  padding: 28px 24px 24px;
 }
 
 #kontakt h3 {
@@ -510,7 +528,7 @@
   width: 100%;
   padding: 10px 0;
   border: 0;
-  border-bottom: 1px solid #4a4a4a;
+  border-bottom: 1px solid var(--color-dark-input-border);
   border-radius: 0;
   background: transparent;
   color: var(--color-dark-text);
@@ -528,16 +546,6 @@
 
 .field textarea {
   resize: vertical;
-}
-
-#kontakt .button {
-  background: var(--color-accent-light);
-  color: var(--color-text);
-}
-
-#kontakt .button:hover,
-#kontakt .button:focus-visible {
-  background: #e3b968;
 }
 
 #kontakt :focus-visible {

@@ -50,43 +50,67 @@
 }
 
 :root {
-  /* Osnovne boje */
-  --color-text: #141414;
-  --color-muted: #5c5c5c;
-  --color-bg: #ffffff;
-  --color-surface: #f2f2f0;
-  --color-border: #e2e2de;
+  /* Paleta (client/public/Resursi/colors.png): žuta, zelena, plava, višnja, sive.
+     Ljestvice od najsvjetlije (1) do najtamnije (7); ovdje samo korištene nijanse. */
+  --yellow-1: #fce403;
+  --yellow-2: #d1bd02;
+  --yellow-3: #a79701;
+  --yellow-4: #837601;
+  --cherry-4: #c50276;
+  --cherry-5: #8c0152;
+  --slate-1: #edeff0;
+  --slate-2: #c2c9cc;
+  --slate-3: #9ba3a8;
+  --slate-4: #7b8285;
+  --slate-5: #595f61;
+  --slate-6: #383b3d;
+  --slate-7: #191b1c;
 
-  /* Akcent iz logotipa (zlatni trokut) */
-  --color-accent: #9a6b1f; /* bijeli tekst na njemu: AA */
-  --color-accent-hover: #7f5818;
-  --color-accent-light: #d4a44c; /* za tamnu podlogu */
+  /* Osnovne boje */
+  --color-text: var(--slate-7);
+  --color-muted: #44494c; /* između slate-5 i slate-6: >= 4.5:1 i na karticama */
+  --color-bg: #ffffff;
+  --color-surface: var(--slate-1);
+  --color-border: #e2e5e7;
+
+  /* Akcent: "Enigma" u naslovu i isticanje (preporučeni paket) */
+  --color-accent: #d6c100;
+  /* Gumbi: višnja #C50276, hover tamniji #8C0152 (boja naslova kartica).
+     Bijeli tekst: 5.7:1 i 9:1. */
+  --color-button: var(--cherry-4);
+  --color-button-hover: var(--cherry-5);
+  --color-on-button: #ffffff;
+  /* Tamnija žuta za poveznice, fokus i sitne oznake na svijetlom (4.6:1 na bijelom) */
+  --color-accent-strong: var(--yellow-4);
+  /* Na tamnoj podlozi (Kontakt) */
+  --color-accent-light: var(--yellow-2);
+
+  /* Sekundarni akcent: višnja, naslovi kartica */
+  --color-secondary: var(--cherry-5);
 
   /* Tamni dio (Kontakt) */
-  --color-dark: #0d0d0d;
-  --color-dark-surface: #1a1a1a;
-  --color-dark-border: #2e2e2e;
-  --color-dark-text: #f2f2f2;
-  --color-dark-muted: #a8a8a8;
+  --color-dark: var(--slate-6); /* tamno siva pozadina Kontakta */
+  --color-dark-surface: #2f3234; /* kartice u Kontaktu, nijansu tamnije */
+  --color-dark-border: var(--slate-5);
+  --color-dark-input-border: var(--slate-4);
+  --color-dark-text: var(--slate-1);
+  --color-dark-muted: var(--slate-2); /* >= 4.5:1 na tamno sivoj */
 
   /* Podnožje */
-  --color-footer: #999999;
+  --color-footer: var(--slate-3);
 
-  /* Boje kartica po sekciji: topli tonovi iz rasporeda (zlatna, bronca, pijesak).
-     Svaka je dovoljno svijetla da --color-muted na njoj ima kontrast >= 4.5:1 */
-  --card-honey: #f3d58c;
-  --card-apricot: #f5d1ab;
-  --card-khaki: #e3dba3;
-  --card-rose: #f2cfbe;
-  --card-champagne: #f0dcae;
+  /* Boja svih kartica; --color-muted na njoj ima kontrast >= 4.5:1 */
+  --card-color: #fdf6b9;
 
-  /* Sivi gradijent kroz sekcije; svaka sekcija nastavlja gdje je prethodna stala */
-  --grey-1: #f7f7f5;
-  --grey-2: #f0f0ed;
-  --grey-3: #e8e8e4;
-  --grey-4: #deded9;
-  --grey-5: #d3d3ce;
-  --grey-6: #b9b9b4;
+  /* Sivi gradijent kroz sekcije (hladne sive iz palete); svaka sekcija nastavlja
+     gdje je prethodna stala */
+  --grey-1: #f6f7f8;
+  --grey-2: var(--slate-1);
+  --grey-3: #e2e5e7;
+  --grey-4: #d6dbdd;
+  --grey-5: var(--slate-2);
+  --grey-6: var(--slate-3);
+  --grey-7: var(--slate-4);
 
   /* Tipografija */
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -145,7 +169,7 @@ h3 {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
 }
 
 img {
@@ -154,7 +178,7 @@ img {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-accent-strong);
   outline-offset: 2px;
 }
 

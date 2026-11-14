@@ -25,6 +25,3 @@ export const trainers = [
     sort_order: 3,
   },
 ];
-
-// Zajednička fotografija tima iznad pojedinačnih kartica
-export const teamImage = 'treneriTim';

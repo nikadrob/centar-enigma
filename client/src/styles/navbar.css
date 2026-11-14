@@ -59,7 +59,7 @@
 /* Aktivna sekcija (bez podebljanja, da se poveznice ne pomiču) */
 .navbar__links a.is-active {
   text-decoration: underline;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--color-accent-strong);
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
 }

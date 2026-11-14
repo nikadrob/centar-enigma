@@ -27,7 +27,7 @@
 ## Struktura
 - `client/src/data/`: hard-codean sadržaj (lorem ipsum), jedna datoteka po tablici
 - `client/src/data/resources.js`: JEDINO mjesto s putanjama slika i logotipa
-- `client/src/components/`: zajedničke komponente (Navbar, Section, Card, ImagePlaceholder, Logo)
+- `client/src/components/`: zajedničke komponente (Navbar, Section, Card, ImagePlaceholder, Logo, SocialLinks)
 - `client/src/sections/`: po jedna komponenta za svaku sekciju
 - `client/src/hooks/`: useActiveSection, useReveal
 - `server/src/`: Express app, `schema.sql`, `seed.js`, `routes/`
@@ -43,10 +43,15 @@
 - Bez slike koristi se `ImagePlaceholder`; bez logotipa tekstualni `Logo`
 - Slike i logo idu u `client/public/Resursi/`; nazivi datoteka bez razmaka
 - Stil (inspiracija: `Inspiracija/`, bez preuzimanja njihovih tekstova i slika):
-  - boje su CSS varijable u `client/src/styles/base.css` (akcent je zlatna iz logotipa)
-  - header bijeli; sekcije sivi gradijent koji prema kraju tamni; Kontakt tamni; podnožje `#999999`
-  - kartice svake sekcije imaju svoju toplu boju iz sheme rasporeda (zlatna/bronca/pijesak,
-    varijable `--card-*`; `--card-bg` po `#id` sekcije); `--color-muted` na njoj mora imati kontrast ≥ 4.5:1
+  - paleta je `client/public/Resursi/colors.png` (žuta, zelena, plava, višnja, sive);
+    boje su CSS varijable u `client/src/styles/base.css` (`--yellow-*`, `--cherry-*`, `--slate-*`)
+  - „Enigma” u naslovu i preporučeni paket `#D6C100` (`--color-accent`); gumbi višnja `#C50276`
+    (`--color-button`, hover tamniji `#8C0152`, bijeli tekst `--color-on-button`); za poveznice, fokus i sitne oznake `--color-accent-strong` (`#837601`);
+    višnja `#8C0152` (`--color-secondary`) za naslove kartica
+  - header bijeli; sekcije hladni sivi gradijent (blago tamni, O nama završava srednjom sivom); Kontakt tamno sivi;
+    podnožje `--color-footer` (siva iz palete)
+  - sve kartice imaju istu boju `#FDF6B9` (`--card-color` u `base.css`; `--card-bg` po
+    `#id` sekcije); `--color-muted` na njoj mora imati kontrast ≥ 4.5:1
   - fontovi Inter (tekst i naslovi sekcija, `.section__title`) i Inter Tight (ostali naslovi), lokalno u `client/public/fonts/` (OFL), bez Google Fonts
 - Logo u navigaciji: visina `--nav-h` − 16 px, vertikalno centriran; datoteka logotipa
   treba biti izrezana bez praznog ruba

@@ -76,7 +76,7 @@
   --color-border: #e2e5e7;
 
   /* Akcent: "Enigma" u naslovu i isticanje (preporučeni paket) */
-  --color-accent: var(--yellow-2); /* žuta iz palete; ~1.9:1 na svijetlosivom, krupan naslov */
+  --color-accent: #d19902; /* zlatnožuta; krupan naslov */
   /* Gumbi: višnja #A80265, hover tamniji #8C0152 (boja naslova kartica).
      Bijeli tekst: 7.3:1 i 9:1. */
   --color-button: var(--cherry-4);

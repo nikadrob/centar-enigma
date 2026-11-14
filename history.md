@@ -57,6 +57,15 @@ tijek rada, odluke i otvorene stavke. Stanje: 14. 11. 2026.
 | Treneri | Uklonjena zajednička fotografija tima (`teamImage` iz `trainers.js`, `.team-photo` CSS) |
 | Gradijent | O nama više ne tamni do crne (`--grey-5` → `--grey-6`); Kontakt počinje istom sivom i u prvih 64 px prelazi u tamno sivu `#383B3D` |
 
+### Sesija 14. 11. 2026, nastavak (naknadno, nije commitano)
+
+| Promjena | Detalji |
+|---|---|
+| Akcent | `--color-accent` = `#D19902` (zlatnožuta): „Enigma” u naslovu, preporučeni paket i njegov fokus. `--yellow-2` (`#D1BD02`) ostao definiran, ali se više ne koristi |
+| Gumbi | `.button` radijus `999px` → `var(--radius-sm)` (12 px, pola prijašnjeg efektivnog 24 px). Navigacija, hamburger i oznaka paketa ostali kapsule |
+| Karta | Nova komponenta `components/MapEmbed.jsx` na dnu O nama (ispod trenera, naslov „Gdje se nalazimo”). Google iframe se učitava tek na klik „Prikaži kartu” (GDPR, kolačići); prije toga kartica `--card-color` s napomenom. Izbor se ne pamti. URL u `contact.map_url` (`client/src/data/contact.js`), koordinate 45.323630972844306, 14.444177850435754, z=16, bez API ključa. Shema baze nije mijenjana; za bazu ponovno pokrenuti seed |
+| Povratak na vrh | Okrugli gumb (višnja, bijela SVG strelica, 44 px, `.to-top`, poveznica na `#pocetna`) u donjem desnom kutu obrasca u Kontaktu, u retku s „Pošalji” (`.contact__actions`). Podnožje je opet samo „© … Centar Enigma” |
+
 ## Važne odluke i odstupanja od prvotnog plana
 
 - **Slike** su odmah spojene iz `Resursi/` (ne placeholderi); `ImagePlaceholder` ostaje kao rezerva.
@@ -79,11 +88,11 @@ Sve boje su CSS varijable u `client/src/styles/base.css`; izvor palete je `color
 
 | Element | Boja | Varijabla |
 |---|---|---|
-| „Enigma” u naslovu, preporučeni paket (okvir + oznaka, tamni tekst) | žuta `#D6C100` | `--color-accent` |
-| Gumbi (bijeli tekst) | višnja `#C50276`, hover `#8C0152` | `--color-button`, `--color-button-hover` |
+| „Enigma” u naslovu, preporučeni paket (okvir + oznaka, tamni tekst) | zlatnožuta `#D19902` | `--color-accent` |
+| Gumbi (bijeli tekst), gumb „na vrh” | višnja `#A80265`, hover `#8C0152` | `--color-button`, `--color-button-hover` |
 | Naslovi kartica | višnja `#8C0152` | `--color-secondary` |
-| Poveznice, fokus, crta aktivne sekcije, točkice u Cjeniku | tamna žuta `#837601` | `--color-accent-strong` |
-| Žuta na tamnom (Kontakt) | `#D1BD02` | `--color-accent-light` |
+| Poveznice, fokus, crta aktivne sekcije, točkice u Cjeniku | tamna zlatna `#8A5F0F` | `--color-accent-strong` |
+| Zlatna na tamnom (Kontakt) | `#D9A441` | `--color-accent-light` |
 | Tekst / prigušeni tekst | `#191B1C` / `#44494C` | `--color-text`, `--color-muted` |
 | Sekcije | hladni sivi gradijent `#F6F7F8` → `#9BA3A8` | `--grey-1` … `--grey-6` |
 | Kontakt / kartice u Kontaktu | tamno siva `#383B3D` / `#2F3234` | `--color-dark`, `--color-dark-surface` |
@@ -98,7 +107,7 @@ Sve boje su CSS varijable u `client/src/styles/base.css`; izvor palete je `color
   linijom, golemi izblijedjeli natpis „ENIGMA” (CSS `::after`).
 - Fontovi Inter (tekst i naslovi sekcija) i Inter Tight (ostali naslovi), lokalno u
   `client/public/fonts/` (varijabilni woff2, OFL licence uz njih). Namjerno bez Google Fonts (GDPR).
-- Kontrast: žuta `#D6C100` na svijetlosivom ima ≈ 1.8:1 (namjerno, krupan naslov);
+- Kontrast: akcent na svijetlosivom ima nizak kontrast (namjerno, krupan naslov);
   sve ostale kombinacije teksta ≥ 4.5:1.
 
 ### Tijek odluka o boji (da se ne ponavlja)
@@ -106,7 +115,7 @@ Sve boje su CSS varijable u `client/src/styles/base.css`; izvor palete je `color
 Pastelne kartice → topli tonovi iz `raspored.png` → prva paleta (zlatna `#DEB021` + plava
 `#214FDE`) → nova paleta (`colors.png`) s karticama žuta / plava / ružičasta → sve kartice
 `#FCF299` → `#FDF6B9` → PROBA sive kartice. „Enigma”: `#D1BD02` → `#FDF6B9` (nevidljivo) →
-`#D6C100`; naslovi kartica: `#837601` → `#D6C100` → `#F4E00B` → boja gumba → višnja.
+`#D6C100` → `#D1BD02` → `#D19902`; naslovi kartica: `#837601` → `#D6C100` → `#F4E00B` → boja gumba → višnja.
 Plava je potpuno izbačena i zamijenjena višnjom. Gumbi: žuta → višnja.
 
 ## Kako je testirano
@@ -126,11 +135,16 @@ Plava je potpuno izbačena i zamijenjena višnjom. Gumbi: žuta → višnja.
 - [ ] PROBA blok kartica: potvrditi i preseliti u stalna pravila ili obrisati
 - [ ] Vizualna provjera u pregledniku (360 / 768 / 1280 px) nakon izmjena 14. 11.:
       ikone ispod headera na 360 px, čitljivost naslova u Cjeniku, prijelaz O nama → Kontakt
-- [ ] Neiskorištene varijable u `base.css`: `--yellow-1`, `--yellow-3`, `--grey-7`
+- [ ] Commit izmjena iz nastavka sesije 14. 11. (akcent, radijus gumba, karta, „na vrh”)
+- [ ] Vizualna provjera: karta prije/poslije klika na 360 px, red „Pošalji” + „na vrh”,
+      novi radijus gumba
+- [ ] Prava adresa u `contact.address` (još „Lorem ipsum ulica 1, Zagreb”), a karta je u Rijeci
+- [ ] Ako se doda banner za kolačiće, `MapEmbed` neka čita privolu iz njega
+- [ ] Neiskorištene varijable u `base.css`: `--yellow-1`, `--yellow-2`, `--yellow-3`, `--grey-7`
       (a `--card-color` je zasjenjen dok je PROBA aktivna); počistiti kad se stil potvrdi
 - [ ] Frontend prebaciti s `client/src/data/` na API (fetch preko Vite proxyja `/api`)
 - [ ] Obrazac u Kontaktu spojiti na `POST /api/contact` (prikaz grešaka iz `fields`)
-- [ ] Pravi tekstovi umjesto lorem ipsuma; pravi kontakt podaci; `map_url`
+- [ ] Pravi tekstovi umjesto lorem ipsuma; pravi kontakt podaci (`map_url` je postavljen)
 - [x] Logo zamijenjen izrezanom verzijom (640 × 190 px); u navigaciji 56 px visok i centriran
 - [ ] Favicon u `client/index.html` još koristi široki `logo-enigma.png`; kvadratni
       `logo-enigma.jpg` (72 × 72) bio bi bolji

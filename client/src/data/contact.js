@@ -10,7 +10,9 @@ export const contact = {
     { days: 'Subota', hours: '09:00 – 14:00' },
     { days: 'Nedjelja', hours: 'zatvoreno' },
   ],
-  map_url: null,
+  // Ugradiva Google karta (iframe, bez API ključa)
+  map_url:
+    'https://maps.google.com/maps?q=45.323630972844306,14.444177850435754&z=16&hl=hr&output=embed',
 };
 
 // Polja obrasca; poruke se kasnije spremaju u tablicu contact_messages

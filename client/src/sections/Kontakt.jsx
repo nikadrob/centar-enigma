@@ -71,9 +71,23 @@ export default function Kontakt() {
                 </div>
               );
             })}
-            <button type="submit" className="button">
-              Pošalji
-            </button>
+            <div className="contact__actions">
+              <button type="submit" className="button">
+                Pošalji
+              </button>
+              <a href="#pocetna" className="to-top" aria-label="Povratak na vrh">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                  <path
+                    d="M12 19V5M5 12l7-7 7 7"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.25"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
             <p className="form-status" role="status">
               {sent && 'Hvala! Poruka je zaprimljena (slanje još nije povezano sa serverom).'}
             </p>

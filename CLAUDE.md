@@ -27,7 +27,8 @@
 ## Struktura
 - `client/src/data/`: hard-codean sadržaj (lorem ipsum), jedna datoteka po tablici
 - `client/src/data/resources.js`: JEDINO mjesto s putanjama slika i logotipa
-- `client/src/components/`: zajedničke komponente (Navbar, Section, Card, ImagePlaceholder, Logo, SocialLinks)
+- `client/src/components/`: zajedničke komponente (Navbar, Section, Card, ImagePlaceholder, Logo, SocialLinks,
+  MapEmbed: Google karta u O nama, učitava se tek na klik zbog kolačića)
 - `client/src/sections/`: po jedna komponenta za svaku sekciju
 - `client/src/hooks/`: useActiveSection, useReveal
 - `server/src/`: Express app, `schema.sql`, `seed.js`, `routes/`
@@ -46,7 +47,7 @@
   - paleta je `client/public/Resursi/colors.png` (žuta, zelena, plava, višnja, sive);
     boje su CSS varijable u `client/src/styles/base.css` (`--gold*`, `--cherry-*`, `--slate-*`);
     zlatna je iz logotipa i rasporeda, ne iz palete (žute iz palete su zelenkaste)
-  - „Enigma” u naslovu i preporučeni paket žuta iz palete `#D1BD02` (`--color-accent`); gumbi višnja `#A80265`
+  - „Enigma” u naslovu i preporučeni paket `#D19902` (`--color-accent`); gumbi višnja `#A80265`
     (`--color-button`, hover tamniji `#8C0152`, bijeli tekst `--color-on-button`); za poveznice, fokus i sitne oznake `--color-accent-strong` (`#8A5F0F`), na tamnom `--color-accent-light` (`#D9A441`);
     višnja `#8C0152` (`--color-secondary`) za naslove kartica
   - header bijeli; sekcije hladni sivi gradijent (blago tamni, O nama završava srednjom sivom); Kontakt tamno sivi;

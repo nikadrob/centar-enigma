@@ -1,7 +1,9 @@
 import Section from '../components/Section.jsx';
 import Card from '../components/Card.jsx';
+import MapEmbed from '../components/MapEmbed.jsx';
 import { about } from '../data/about.js';
 import { trainers } from '../data/trainers.js';
+import { contact } from '../data/contact.js';
 
 export default function ONama() {
   const blocks = [...about].sort((a, b) => a.sort_order - b.sort_order);
@@ -25,6 +27,13 @@ export default function ONama() {
           </Card>
         ))}
       </div>
+
+      {contact.map_url && (
+        <>
+          <h3 className="subsection-title">Gdje se nalazimo</h3>
+          <MapEmbed src={contact.map_url} title="Lokacija Centra Enigma na Google kartama" />
+        </>
+      )}
     </Section>
   );
 }

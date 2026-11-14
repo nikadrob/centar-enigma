@@ -190,7 +190,7 @@
   min-height: 48px;
   padding: 12px 28px;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-sm); /* 12px: pola radijusa kapsule (24px pri visini 48px) */
   background: var(--color-button);
   color: var(--color-on-button);
   font: inherit;
@@ -278,7 +278,7 @@
   letter-spacing: -0.0225em;
 }
 
-/* Druga riječ naslova ("Enigma") u boji gumba */
+/* Druga riječ naslova ("Enigma") */
 .hero__title-accent {
   color: var(--color-accent);
 }
@@ -315,6 +315,48 @@
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 800;
   letter-spacing: -0.035em;
+}
+
+/* Google karta u O nama: puna širina, uži omjer na širem ekranu */
+.map {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+}
+
+.map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Prije klika: tekst o kolačićima i gumb na sredini */
+.map__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 100%;
+  padding: 24px;
+  text-align: center;
+  background: var(--card-color);
+}
+
+.map__placeholder p {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .map {
+    aspect-ratio: 21 / 9;
+  }
 }
 
 .schedule .image,
@@ -365,7 +407,7 @@
 }
 
 .card--highlighted {
-  outline: 2px solid var(--color-accent); /* žuta iz naslova #D6C100 */
+  outline: 2px solid var(--color-accent); /* boja iz naslova #D19902 */
   outline-offset: -2px;
 }
 
@@ -567,7 +609,40 @@
   font-size: 0.875rem;
 }
 
+/* Dno obrasca: "Pošalji" lijevo, "na vrh" u donjem desnom kutu */
+.contact__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Gumb "na vrh": krug u boji gumba, bijela strelica */
+.to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-button);
+  color: var(--color-on-button);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#kontakt .to-top,
+#kontakt .to-top:hover {
+  color: var(--color-on-button); /* inače ga #kontakt a oboji zlatno */
+}
+
+.to-top:hover {
+  background: var(--color-button-hover);
+  transform: translateY(-2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .to-top,
   .button,
   .field input,
   .field textarea {

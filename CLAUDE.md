@@ -44,9 +44,10 @@
 - Slike i logo idu u `client/public/Resursi/`; nazivi datoteka bez razmaka
 - Stil (inspiracija: `Inspiracija/`, bez preuzimanja njihovih tekstova i slika):
   - paleta je `client/public/Resursi/colors.png` (žuta, zelena, plava, višnja, sive);
-    boje su CSS varijable u `client/src/styles/base.css` (`--yellow-*`, `--cherry-*`, `--slate-*`)
-  - „Enigma” u naslovu i preporučeni paket `#D6C100` (`--color-accent`); gumbi višnja `#C50276`
-    (`--color-button`, hover tamniji `#8C0152`, bijeli tekst `--color-on-button`); za poveznice, fokus i sitne oznake `--color-accent-strong` (`#837601`);
+    boje su CSS varijable u `client/src/styles/base.css` (`--gold*`, `--cherry-*`, `--slate-*`);
+    zlatna je iz logotipa i rasporeda, ne iz palete (žute iz palete su zelenkaste)
+  - „Enigma” u naslovu i preporučeni paket žuta iz palete `#D1BD02` (`--color-accent`); gumbi višnja `#A80265`
+    (`--color-button`, hover tamniji `#8C0152`, bijeli tekst `--color-on-button`); za poveznice, fokus i sitne oznake `--color-accent-strong` (`#8A5F0F`), na tamnom `--color-accent-light` (`#D9A441`);
     višnja `#8C0152` (`--color-secondary`) za naslove kartica
   - header bijeli; sekcije hladni sivi gradijent (blago tamni, O nama završava srednjom sivom); Kontakt tamno sivi;
     podnožje `--color-footer` (siva iz palete)

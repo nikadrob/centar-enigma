@@ -52,11 +52,13 @@
 :root {
   /* Paleta (client/public/Resursi/colors.png): žuta, zelena, plava, višnja, sive.
      Ljestvice od najsvjetlije (1) do najtamnije (7); ovdje samo korištene nijanse. */
-  --yellow-1: #fce403;
-  --yellow-2: #d1bd02;
-  --yellow-3: #a79701;
-  --yellow-4: #837601;
-  --cherry-4: #c50276;
+  /* Zlatna iz logotipa (~#BC7A08) i rasporeda (~#AA8A5E); žute iz colors.png su
+     zelenkaste i ne pašu uz logo */
+  --gold-light: #d9a441;
+  --gold: #b8801a;
+  --gold-dark: #8a5f0f;
+  --yellow-2: #d1bd02; /* žuta iz colors.png */
+  --cherry-4: #a80265; /* između #C50276 i #8C0152 iz palete */
   --cherry-5: #8c0152;
   --slate-1: #edeff0;
   --slate-2: #c2c9cc;
@@ -74,16 +76,16 @@
   --color-border: #e2e5e7;
 
   /* Akcent: "Enigma" u naslovu i isticanje (preporučeni paket) */
-  --color-accent: #d6c100;
-  /* Gumbi: višnja #C50276, hover tamniji #8C0152 (boja naslova kartica).
-     Bijeli tekst: 5.7:1 i 9:1. */
+  --color-accent: var(--yellow-2); /* žuta iz palete; ~1.9:1 na svijetlosivom, krupan naslov */
+  /* Gumbi: višnja #A80265, hover tamniji #8C0152 (boja naslova kartica).
+     Bijeli tekst: 7.3:1 i 9:1. */
   --color-button: var(--cherry-4);
   --color-button-hover: var(--cherry-5);
   --color-on-button: #ffffff;
-  /* Tamnija žuta za poveznice, fokus i sitne oznake na svijetlom (4.6:1 na bijelom) */
-  --color-accent-strong: var(--yellow-4);
+  /* Tamnija zlatna za poveznice, fokus i sitne oznake na svijetlom (5.8:1 na bijelom) */
+  --color-accent-strong: var(--gold-dark);
   /* Na tamnoj podlozi (Kontakt) */
-  --color-accent-light: var(--yellow-2);
+  --color-accent-light: var(--gold-light); /* 5:1 na tamno sivoj */
 
   /* Sekundarni akcent: višnja, naslovi kartica */
   --color-secondary: var(--cherry-5);

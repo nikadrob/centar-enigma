@@ -28,7 +28,8 @@
 - `client/src/data/`: hard-codean sadržaj (lorem ipsum), jedna datoteka po tablici
 - `client/src/data/resources.js`: JEDINO mjesto s putanjama slika i logotipa
 - `client/src/components/`: zajedničke komponente (Navbar, Section, Card, ImagePlaceholder, Logo, SocialLinks,
-  MapEmbed: Google karta u O nama, učitava se tek na klik zbog kolačića)
+  MapEmbed: Google karta u O nama, prikazuje se odmah uz `loading="lazy"`; Google postavlja
+  kolačiće, pa stranica prije objave treba obavijest/privolu za kolačiće)
 - `client/src/sections/`: po jedna komponenta za svaku sekciju
 - `client/src/hooks/`: useActiveSection, useReveal
 - `server/src/`: Express app, `schema.sql`, `seed.js`, `routes/`

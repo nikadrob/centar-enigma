@@ -1,7 +1,8 @@
 // Statični sadržaj početne sekcije (nema tablicu u bazi)
 export const home = {
   title: 'Centar Enigma',
-  subtitle: 'Društvo sportske rekreacije centar "Enigma"',
+  subtitle: 'Društvo sportske rekreacije "Centar Enigma"',
+  programs: ['Fitness', 'Grupni programi', 'Individualni'],
   cta_label: 'Pogledaj treninge',
   cta_target: 'treninzi',
   image: 'hero',

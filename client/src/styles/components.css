@@ -40,6 +40,11 @@
   letter-spacing: -0.035em;
 }
 
+/* Podnaslov odmah ispod naslova sekcije (npr. Treneri u O nama): bez dodatnog razmaka */
+.section__title + .subsection-title {
+  margin-top: 0;
+}
+
 /* Pozadine: sivi gradijent koji se nastavlja iz sekcije u sekciju
    i prema kraju postupno tamni do Kontakta */
 #pocetna {
@@ -273,7 +278,7 @@
 
 .section--hero .section__title {
   margin-bottom: 20px;
-  font-size: clamp(2.55rem, 11.05vw, 5.1rem); /* 85 % */
+  font-size: clamp(2.4225rem, 10.4975vw, 4.845rem); /* 85 % pa još 5 % manje */
   line-height: 1;
   letter-spacing: -0.0225em;
 }
@@ -285,9 +290,18 @@
 
 .hero__subtitle {
   max-width: 34ch;
-  margin: 0 0 28px;
+  margin: 0 0 8px;
   color: var(--color-muted);
   font-size: 1.125rem;
+}
+
+/* FITNESS / GRUPNI PROGRAMI / INDIVIDUALNI */
+.hero__programs {
+  margin: 0 0 28px;
+  color: var(--color-secondary); /* višnja */
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .hero .image,
@@ -298,8 +312,20 @@
 @media (min-width: 768px) {
   .hero {
     grid-template-columns: 1.1fr 1fr;
-    align-items: center;
+    align-items: start; /* tekst poravnat s vrhom slike */
     gap: 48px;
+  }
+
+  /* Stupac s tekstom visok kao slika; gumb se spušta na dno, poravnat s dnom slike */
+  .hero__text {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  .hero__text .button {
+    align-self: flex-start;
+    margin-top: auto;
   }
 }
 
@@ -331,26 +357,6 @@
   width: 100%;
   height: 100%;
   border: 0;
-}
-
-/* Prije klika: tekst o kolačićima i gumb na sredini */
-.map__placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  height: 100%;
-  padding: 24px;
-  text-align: center;
-  background: var(--card-color);
-}
-
-.map__placeholder p {
-  max-width: 42ch;
-  margin: 0;
-  color: var(--color-muted);
-  font-size: 0.9375rem;
 }
 
 @media (min-width: 768px) {
